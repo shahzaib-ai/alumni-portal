@@ -5,7 +5,7 @@ import { mentors } from "../constants/constants";
 
 export default function MentorCarousal() {
   return (
-    <Marquee className="pb-8" speed={80} pauseOnHover={true}>
+    <Marquee className="pb-8" speed={80} pauseOnHover={true} autoFill={true}>
       {mentors.map((mentor, index) => (
         <Card key={index} mentor={mentor} />
       ))}
@@ -19,7 +19,7 @@ function Card({ mentor }) {
     <>
       <a
         href={`/mentor/${id}`}
-        className="mx-2 inline-block w-[200px] h-[200px] align-bottom mr-4"
+        className="mx-2 inline-block w-[200px] h-[200px] align-bottom mr-4 last-of-type:mr-0"
         target="_blank"
       >
         <div className="drop-shadow-lg rounded-lg p-6 bg-white h-full w-full overflow-hidden">
@@ -31,9 +31,7 @@ function Card({ mentor }) {
             alt={name}
           />
           <div className="mt-4 text-center whitespace-normal overflow-hidden align-bottom">
-            <h5 className="font-bold text-navy-900 whitespace-nowrap">
-              {name}
-            </h5>
+            <h5 className="font-bold text-navy-900">{name}</h5>
             <span className="text-gray-400 text-sm mt-2" lang="en">
               {designation}
             </span>
