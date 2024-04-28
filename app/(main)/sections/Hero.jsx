@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-import HeroIllustration from "../../public/illustration-15-animated.svg";
+import HeroIllustration from "@/public/illustration-15-animated.svg";
 
 export default function Hero() {
   return (

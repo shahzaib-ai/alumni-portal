@@ -1,7 +1,4 @@
-import { mentors } from "../../constants/constants";
-
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import { mentors } from "@/lib/constants";
 
 import Image from "next/image";
 
@@ -18,7 +15,6 @@ export default function Page({ params }) {
 
     return (
       <>
-        <NavBar />
         <div className="h-[90vh]">
           <div className="bg-primary h-[400px]">
             <Image
@@ -55,7 +51,6 @@ export default function Page({ params }) {
             </div>
           </span> */}
         </div>
-        <Footer />
       </>
     );
   } else {

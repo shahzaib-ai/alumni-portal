@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
-import { mentors } from "../constants/constants";
+import { mentors } from "@/lib/constants";
 
 export default function MentorCarousal() {
   return (

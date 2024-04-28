@@ -6,9 +6,11 @@ export default function NavBar() {
   return (
     <header className="py-12 flex flex-row justify-between">
       {" "}
-      <h4 className="ml-4 md:ml-20 text-primary font-bold">
-        COMSIANS&apos; Connect
-      </h4>
+      <a href="/">
+        <h4 className="ml-4 md:ml-20 text-primary font-bold">
+          COMSIANS&apos; Connect
+        </h4>
+      </a>
       <nav className="mx-4 flex flex-row gap-4">
         <div className="hover:translate-y-1 transition-all w-min">
           <Link

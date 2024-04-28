@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import logo from "../../public/mc-logo.svg";
-import edit from "../../public/mc-edit.svg";
-import rocket from "../../public/mc-rocket.svg";
+import logo from "@/public/mc-logo.svg";
+import edit from "@/public/mc-edit.svg";
+import rocket from "@/public/mc-rocket.svg";
 
 export default function WordDictionary() {
   return (
