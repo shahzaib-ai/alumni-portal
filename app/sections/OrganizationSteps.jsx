@@ -12,13 +12,13 @@ export default function OrganizationSteps() {
   return (
     <>
       <div className="py-28 mx-auto">
-        <h4 class="font-bold text-primary text-center">
+        <h4 className="font-bold text-primary text-center">
           For Businesses, Organisations and Educational Institutes:
         </h4>
-        <h2 class="font-semibold text-center pt-12 pb-3">
+        <h2 className="font-semibold text-center pt-12 pb-3">
           Streamline your internal mentoring programs
         </h2>
-        <h3 class="text-center pb-5">
+        <h3 className="text-center pb-5">
           Enterprise-level mentoring software, to{" "}
           <strong>match, manage and scale mentoring</strong>,
           <br />
@@ -26,57 +26,63 @@ export default function OrganizationSteps() {
           support and success.
         </h3>
 
-        <div class="mx-auto w-[90%] flex flex-col items-center lg:flex-row  gap-8 pt-12">
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+        <div className="mx-auto w-[90%] flex flex-col items-center lg:flex-row  gap-8 pt-12">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration4}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Find a Mentor"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">
+            <div className="text-[18px] font-bold mb-2">
               1. Configure The Platform
             </div>
             Add your questions, approvals, settings, branding and matching
             rules, through your own admin panel.
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration9}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Having a Mentoring Meeting"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">2. Invite Participants</div>
+            <div className="text-[18px] font-bold mb-2">
+              2. Invite Participants
+            </div>
             Share unique registration links, invite them via Single-Sign On
             (SSO), or import them via CSV or APIs.{" "}
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration2}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Setting Career Goals"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">3. Manage Mentoring</div>
+            <div className="text-[18px] font-bold mb-2">
+              3. Manage Mentoring
+            </div>
             Participants can find matches, host meetings and track their own
             goals through COMSIANS platform.{" "}
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration6}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Networking and Tracking Mentoring Reports"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">4. Monitor and Report</div>
+            <div className="text-[18px] font-bold mb-2">
+              4. Monitor and Report
+            </div>
             Track your participants mentoring activity, from goals and meetings
             to feedback and survey capture.{" "}
           </div>
@@ -84,7 +90,7 @@ export default function OrganizationSteps() {
       </div>
       <div className="flex flex-col align items-center p-10 md:p-28 bg-primary">
         <div>
-          <h4 class="font-bold text-white">
+          <h4 className="font-bold text-white">
             Launch and scale streamlined mentoring programs.
           </h4>
           <h6 className="text-white">

@@ -49,11 +49,11 @@ export function UserAuthForm({ className, ...props }) {
                 disabled={isLoading}
                 required
               />
-              <Label className="sr-only" htmlFor="email">
+              <Label className="sr-only" htmlFor="lname">
                 Last Name
               </Label>
               <Input
-                id="email"
+                id="lname"
                 placeholder="Last Name"
                 type="text"
                 autoCapitalize="none"
@@ -86,6 +86,20 @@ export function UserAuthForm({ className, ...props }) {
             <Input
               id="password"
               placeholder="Password"
+              type="password"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading}
+              required
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label className="sr-only" htmlFor="confirm-password">
+              Confirm password
+            </Label>
+            <Input
+              id="confirm-password"
+              placeholder="Confirm password"
               type="password"
               autoCapitalize="none"
               autoCorrect="off"

@@ -13,26 +13,26 @@ export default function Hero() {
           <Image src={HeroIllustration} alt="illustration" />
         </div>
         <div className="w-full lg:w-[48%]">
-          <h1 class="pb-12">
+          <h1 className="pb-12">
             The world&apos;s{" "}
-            <span class="font-bold text-primary">
+            <span className="font-bold text-primary">
               leading mentoring platform
             </span>
             . People power, unleashed.
           </h1>
-          <h3 class="pb-12">
+          <h3 className="pb-12">
             We help individuals to{" "}
-            <span class="font-bold text-primary">find a mentor</span> and{" "}
-            <span class="font-bold text-primary">become a mentor</span>, whilst
-            enabling organisations to{" "}
-            <span class="font-bold text-primary">
+            <span className="font-bold text-primary">find a mentor</span> and{" "}
+            <span className="font-bold text-primary">become a mentor</span>,
+            whilst enabling organisations to{" "}
+            <span className="font-bold text-primary">
               launch, run and scale thriving internal and external mentoring
               programs
             </span>
             .
           </h3>
-          <div class="pb-12">
-            <div class="text-lg font-semibold">
+          <div className="pb-12">
+            <div className="text-lg font-semibold">
               So, who&apos;s looking for mentoring?
             </div>
             <div className="mt-4 hover:translate-x-1 transition-all w-min">

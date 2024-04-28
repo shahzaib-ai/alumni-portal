@@ -12,64 +12,66 @@ export default function IndividualSteps() {
   return (
     <>
       <div className="py-28 mx-auto">
-        <h4 class="font-bold text-primary text-center">For Individuals:</h4>
-        <h2 class="font-semibold text-center pt-12 pb-3">
+        <h4 className="font-bold text-primary text-center">For Individuals:</h4>
+        <h2 className="font-semibold text-center pt-12 pb-3">
           The global mentoring & career progression platform
         </h2>
-        <h3 class="text-center pb-5">
+        <h3 className="text-center pb-5">
           Create your <strong>free</strong> account now to get mentoring and{" "}
           <strong>level-up your career</strong>.
         </h3>
 
-        <div class="mx-auto w-[90%] flex flex-col items-center lg:flex-row  gap-8 pt-12">
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+        <div className="mx-auto w-[90%] flex flex-col items-center lg:flex-row  gap-8 pt-12">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration5}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Find a Mentor"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">1. Find a Mentor Match</div>
+            <div className="text-[18px] font-bold mb-2">
+              1. Find a Mentor Match
+            </div>
             Create an account, sign up to be a mentor or mentee - or both - and
             we&apos;ll suggest the best mentoring matches.
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration1}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Having a Mentoring Meeting"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">2. Begin Mentoring</div>
+            <div className="text-[18px] font-bold mb-2">2. Begin Mentoring</div>
             Once you&apos;ve found the right matches, we help you to schedule
             meetings, track goals and stay on top of mentoring.{" "}
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration7}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Setting Career Goals"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">3. Track Progress</div>
+            <div className="text-[18px] font-bold mb-2">3. Track Progress</div>
             Earn Points for engaging with others, being proactive and completing
             goals and career progression tasks.{" "}
           </div>
 
-          <div class="mx-auto pb-3 md:w-[50%] text-center">
-            <div class="pb-5 flex justify-center">
+          <div className="mx-auto pb-3 md:w-[50%] text-center">
+            <div className="pb-5 flex justify-center">
               <Image
                 src={illustration3}
-                class="w-[200px]"
+                className="w-[200px]"
                 alt="Networking and Tracking Mentoring Reports"
               />
             </div>
-            <div class="text-[18px] font-bold mb-2">4. Go Further</div>
+            <div className="text-[18px] font-bold mb-2">4. Go Further</div>
             Beyond mentoring, you can start threads and conversations, explore
             job opportunities, discover virtual events and more.{" "}
           </div>
@@ -77,7 +79,7 @@ export default function IndividualSteps() {
       </div>
       <div className="flex flex-col align items-center p-10 md:p-28 bg-primary">
         <div>
-          <h4 class="font-bold text-white">
+          <h4 className="font-bold text-white">
             Create Your Account in 30 Seconds.
           </h4>
           <h6 className="text-white">

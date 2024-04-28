@@ -8,9 +8,9 @@ export default function Footer() {
           professionals to move your career ahead.
         </p>
       </div>
-      <p class="text-base font-normal text-gray-400 xl:text-center self-start lg:self-end">
-        © 2023&nbsp;
-        <a class="underline text-gray-400 normal-case" href="#">
+      <p className="text-base font-normal text-gray-400 xl:text-center self-start lg:self-end">
+        © {new Date().getFullYear()}&nbsp;
+        <a className="underline text-gray-400 normal-case" href="#">
           COMSIANS Connect
         </a>
         . All Rights Reserved.
