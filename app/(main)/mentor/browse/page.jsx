@@ -11,7 +11,7 @@ import { mentors } from "@/lib/constants";
 export default function Browse() {
   return (
     <>
-      <ol>
+      <ol className="mt-8">
         {mentors?.map((mentor, index) => (
           <li className="list-item" key={index}>
             <Card mentor={mentor} />
@@ -24,17 +24,17 @@ export default function Browse() {
 
 function Card({ mentor }) {
   return (
-    <div className=" flex max-md:flex-col max-md:mx-3 gap-8 px-7 py-8 transition-all duration-150 mb-6 max-w-4xl mx-auto rounded-xl border border-gray-300">
+    <div className="flex max-sm:flex-col mx-3 md:mx-auto gap-8 px-7 py-8 transition-all duration-150 mb-6 max-w-4xl rounded-xl border border-gray-300">
       <div>
         <Image
-          className="rounded-[.75rem] h-72 object-cover max-md:w-full"
+          className="rounded-[.75rem] h-72 object-cover max-sm:w-full"
           src={mentor.img}
           alt={mentor.name}
           width={180}
           height={288}
         />
       </div>
-      <div className="md:max-w-[75%]">
+      <div className="sm:max-w-[70%]">
         <h3 className="font-bold text-xl primary">{mentor.name}</h3>
         <p className="pt-1">{mentor.designation}</p>
         <p className="pt-8">{mentor.about}</p>
