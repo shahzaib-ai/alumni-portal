@@ -1,6 +1,6 @@
 import DashNavBar from "@/components/DashNavBar";
 
-export default function MenteeLayout({ children }) {
+export default function MentorLayout({ children }) {
   return (
     <>
       <DashNavBar />

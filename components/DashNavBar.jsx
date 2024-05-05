@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React from "react";
-
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -15,13 +13,16 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { currentUser } from "@/lib/constants";
+import { currentMentor, currentUser } from "@/lib/constants";
 import { ChevronDown, LinkIcon, MenuIcon } from "lucide-react";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-export default function NavBar() {
+export default function DashNavBar() {
   const currentPath = usePathname();
+
+  const isMentee = currentPath.startsWith("/mentee");
+
   return (
     <div className=" shadow-md relative">
       <nav className="bg-[#163b6e]">
@@ -39,43 +40,55 @@ export default function NavBar() {
               </div>
               <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
                 <Link
-                  href="/mentee/dashboard/home"
+                  href={`/${isMentee ? "mentee" : "mentor"}/dashboard/home`}
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
                     `border-0 hover:bg-[#20549d]/40 text-white font-semibold text-[14px] ${
-                      currentPath === "/mentee/dashboard/home"
+                      currentPath ===
+                      (isMentee
+                        ? "/mentee/dashboard/home"
+                        : "/mentor/dashboard/home")
                         ? "bg-[#20549d]/70"
                         : ""
                     }`
                   )}
                 >
-                  Mentors
+                  {isMentee ? "Mentors" : "Mentees"}
                 </Link>
                 <Link
-                  href="/mentee/dashboard/applications"
+                  href={
+                    isMentee
+                      ? "/mentee/dashboard/applications"
+                      : "/mentor/dashboard/applicants"
+                  }
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
                     `border-0 hover:bg-[#20549d]/40 text-white font-semibold text-[14px] ${
-                      currentPath === "/mentee/dashboard/applications"
+                      currentPath ===
+                      (isMentee
+                        ? "/mentee/dashboard/applications"
+                        : "/mentor/dashboard/applicants")
                         ? "bg-[#20549d]/70"
                         : ""
                     }`
                   )}
                 >
-                  Applications
+                  {isMentee ? "Applications" : "Applicants"}
                 </Link>
-                <Link
-                  href="/mentor/browse"
-                  className={cn(
-                    buttonVariants({ variant: "ghost" }),
-                    "border-0 hover:bg-[#20549d]/40 text-white font-semibold text-[14px]"
-                  )}
-                >
-                  <span className="flex">
-                    <span>Browse mentors</span>{" "}
-                    <LinkIcon className="text-white h-4 w-4 ml-2" />
-                  </span>
-                </Link>
+                {isMentee && (
+                  <Link
+                    href="/mentor/browse"
+                    className={cn(
+                      buttonVariants({ variant: "ghost" }),
+                      "border-0 hover:bg-[#20549d]/40 text-white font-semibold text-[14px]"
+                    )}
+                  >
+                    <span className="flex">
+                      <span>Browse mentors</span>{" "}
+                      <LinkIcon className="text-white h-4 w-4 ml-2" />
+                    </span>
+                  </Link>
+                )}
               </div>
             </div>
             <div className="md:flex items-center hidden">
@@ -91,10 +104,14 @@ export default function NavBar() {
                   </div>
                 </PopoverTrigger>
                 <PopoverContent className="mr-[1vw] mt-1 rounded-[8px]">
-                  <p className="font-semibold">{currentUser.name}</p>
+                  <p className="font-semibold">
+                    {isMentee ? currentUser.name : currentMentor.name}
+                  </p>
                   <div className="border my-1 border-gray-300"></div>
                   <p className="text-sm">Signed in as</p>
-                  <p className="-mt-1 font-bold">{currentUser.email}</p>
+                  <p className="-mt-1 font-bold">
+                    {isMentee ? currentUser.email : currentMentor.email}
+                  </p>
                 </PopoverContent>
               </Popover>
             </div>
@@ -106,43 +123,55 @@ export default function NavBar() {
                 <SheetContent className="bg-[#20549d] w-[70%]">
                   <div className="flex flex-col mt-20">
                     <Link
-                      href="/mentee/dashboard/home"
+                      href={`/${isMentee ? "mentee" : "mentor"}/dashboard/home`}
                       className={cn(
                         buttonVariants({ variant: "ghost" }),
                         `border-0 bg-[#20549d]/40 text-white font-semibold text-[14px] justify-start ${
-                          currentPath === "/mentee/dashboard/home"
-                            ? "bg-[#20549d]/70"
+                          currentPath ===
+                          (isMentee
+                            ? "/mentee/dashboard/home"
+                            : "/mentor/dashboard/home")
+                            ? "bg-secondary/30"
                             : ""
                         }`
                       )}
                     >
-                      Mentors
+                      {isMentee ? "Mentors" : "Mentees"}
                     </Link>
                     <Link
-                      href="/mentee/dashboard/applications"
+                      href={
+                        isMentee
+                          ? "/mentee/dashboard/applications"
+                          : "/mentor/dashboard/applicants"
+                      }
                       className={cn(
                         buttonVariants({ variant: "ghost" }),
                         `border-0 bg-[#20549d]/40 text-white font-semibold text-[14px] justify-start ${
-                          currentPath === "/mentee/dashboard/applications"
-                            ? "bg-[#20549d]/70"
+                          currentPath ===
+                          (isMentee
+                            ? "/mentee/dashboard/applications"
+                            : "/mentee/dashboard/applicants")
+                            ? "bg-secondary/30"
                             : ""
                         }`
                       )}
                     >
-                      Applications
+                      {isMentee ? "Applications" : "Applicants"}
                     </Link>
-                    <Link
-                      href="/mentor/browse"
-                      className={cn(
-                        buttonVariants({ variant: "ghost" }),
-                        "border-0 bg-[#20549d]/40 text-white font-semibold text-[14px] justify-start"
-                      )}
-                    >
-                      <span className="flex">
-                        <span>Browse mentors</span>{" "}
-                        <LinkIcon className="text-white h-4 w-4 ml-2" />
-                      </span>
-                    </Link>
+                    {isMentee && (
+                      <Link
+                        href="/mentor/browse"
+                        className={cn(
+                          buttonVariants({ variant: "ghost" }),
+                          "border-0 bg-[#20549d]/40 text-white font-semibold text-[14px] justify-start"
+                        )}
+                      >
+                        <span className="flex">
+                          <span>Browse mentors</span>{" "}
+                          <LinkIcon className="text-white h-4 w-4 ml-2" />
+                        </span>
+                      </Link>
+                    )}
                     <div className="bg-white/40 h-1 mt-8"></div>
                     <div className="ml-1 mt-8 flex gap-2 items-center">
                       <img
@@ -151,9 +180,11 @@ export default function NavBar() {
                         alt="Profile"
                       />
                       <span className="flex flex-col ml-1">
-                        <span className="text-white">{currentUser.name}</span>
+                        <span className="text-white">
+                          {isMentee ? currentUser.name : currentMentor.name}
+                        </span>
                         <span className="text-white -mt-1">
-                          {currentUser.email}
+                          {isMentee ? currentUser.email : currentMentor.email}
                         </span>
                       </span>
                     </div>
