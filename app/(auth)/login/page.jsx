@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -10,6 +11,15 @@ export default function Login() {
   return (
     <>
       <div className="container relative grid h-[700px] flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <span className="absolute left-4 top-4 md:left-8 md:top-8">
+          <Link href="/">
+            <img
+              className="rounded-full p-2 h-10 w-10 bg-blue-900"
+              src="/comsian.png"
+              alt="Home"
+            />
+          </Link>
+        </span>
         <span className="absolute right-4 top-4 md:right-8 md:top-8">
           <span className=" text-sm mr-2">Don&apos;t have an account?</span>
           <Link

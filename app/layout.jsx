@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Providers from "./providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = localFont({
   src: "./Inter.ttf",
@@ -20,7 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Toaster richColors theme={"light"} />
+        </Providers>
       </body>
     </html>
   );

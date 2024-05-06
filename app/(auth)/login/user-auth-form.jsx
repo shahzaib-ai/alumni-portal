@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import * as React from "react";
 
@@ -8,8 +9,32 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import { userAtom } from "@/app/user-state";
+import { useAtom } from "jotai";
+import { useRouter } from "next/navigation";
+
 export function UserAuthForm({ className, ...props }) {
   const [isLoading, setIsLoading] = React.useState(false);
+  const [loginType, setLoginType] = React.useState("mentee");
+  const [userState, setUserState] = useAtom(userAtom);
+  const [initialized, setInitialized] = React.useState(false);
+
+  React.useEffect(() => {
+    if (initialized) {
+      if (userState?.isLoggedIn) {
+        if (userState?.type === "mentee") {
+          router.push("/mentee/dashboard");
+        }
+
+        if (userState?.type === "mentor") {
+          router.push("/mentor/dashboard");
+        }
+      }
+    }
+    setInitialized(true);
+  }, [initialized, userState]);
+
+  const router = useRouter();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -17,7 +42,24 @@ export function UserAuthForm({ className, ...props }) {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+      if (loginType === "mentee") {
+        setUserState((user) => ({
+          ...user,
+          isLoggedIn: true,
+          type: loginType,
+        }));
+        router.push("/mentee/dashboard");
+      }
+
+      if (loginType === "mentor") {
+        setUserState((user) => ({
+          ...user,
+          isLoggedIn: true,
+          type: loginType,
+        }));
+        router.push("/mentor/dashboard");
+      }
+    }, 1000);
   }
 
   return (
@@ -26,10 +68,22 @@ export function UserAuthForm({ className, ...props }) {
         <div className="grid gap-2">
           <Tabs defaultValue="mentee" className="mb-4">
             <TabsList className="grid w-full grid-cols-2 bg-gray-200">
-              <TabsTrigger className=" text-gray-500" value="mentee">
+              <TabsTrigger
+                className=" text-gray-500"
+                value="mentee"
+                onClick={() => {
+                  setLoginType("mentee");
+                }}
+              >
                 I&apos;m a Mentee
               </TabsTrigger>
-              <TabsTrigger className="text-gray-500" value="mentor">
+              <TabsTrigger
+                className="text-gray-500"
+                value="mentor"
+                onClick={() => {
+                  setLoginType("mentor");
+                }}
+              >
                 I&apos;m a Mentor
               </TabsTrigger>
             </TabsList>

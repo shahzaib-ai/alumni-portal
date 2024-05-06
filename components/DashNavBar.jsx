@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 import { usePathname } from "next/navigation";
 
@@ -18,9 +18,15 @@ import { ChevronDown, LinkIcon, MenuIcon } from "lucide-react";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-export default function DashNavBar() {
-  const currentPath = usePathname();
+import { useRouter } from "next/navigation";
+import { userAtom } from "@/app/user-state";
+import { useAtom } from "jotai";
 
+export default function DashNavBar() {
+  const [userState, setUserState] = useAtom(userAtom);
+  const router = useRouter();
+
+  const currentPath = usePathname();
   const isMentee = currentPath.startsWith("/mentee");
 
   return (
@@ -112,6 +118,19 @@ export default function DashNavBar() {
                   <p className="-mt-1 font-bold">
                     {isMentee ? currentUser.email : currentMentor.email}
                   </p>
+                  <Button
+                    variant="destructive"
+                    className="text-white mt-2"
+                    onClick={() => {
+                      setUserState((user) => ({
+                        ...user,
+                        isLoggedIn: false,
+                        type: "",
+                      }));
+                    }}
+                  >
+                    Logout
+                  </Button>
                 </PopoverContent>
               </Popover>
             </div>
@@ -188,6 +207,19 @@ export default function DashNavBar() {
                         </span>
                       </span>
                     </div>
+                    <Button
+                      variant="destructive"
+                      className="text-white mt-8 bg-red-600/80"
+                      onClick={() => {
+                        setUserState((user) => ({
+                          ...user,
+                          isLoggedIn: false,
+                          type: "",
+                        }));
+                      }}
+                    >
+                      Logout
+                    </Button>
                   </div>
                 </SheetContent>
               </Sheet>

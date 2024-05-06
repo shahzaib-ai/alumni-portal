@@ -8,16 +8,32 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import { toast } from "sonner";
+
 export function UserAuthForm({ className, ...props }) {
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isPassNotMatching, setIsPassNotMatching] = React.useState(false);
+
+  const [pass, setPass] = React.useState("");
+  const [cPass, setCPass] = React.useState("");
 
   async function onSubmit(event) {
     event.preventDefault();
+
+    if (isPassNotMatching) {
+      return;
+    }
     setIsLoading(true);
 
     setTimeout(() => {
+      setPass("");
+      setCPass("");
+      event.target.reset();
       setIsLoading(false);
-    }, 3000);
+      toast.success("Form is submitted successfully.", {
+        description: "You will receive email shortly.",
+      });
+    }, 1000);
   }
 
   return (
@@ -91,6 +107,9 @@ export function UserAuthForm({ className, ...props }) {
               autoCorrect="off"
               disabled={isLoading}
               required
+              minLength="8"
+              defaultValue={pass}
+              onChange={(e) => setPass(e.target.value)}
             />
           </div>
           <div className="grid gap-2">
@@ -105,7 +124,22 @@ export function UserAuthForm({ className, ...props }) {
               autoCorrect="off"
               disabled={isLoading}
               required
+              minLength="8"
+              defaultValue={cPass}
+              onChange={(e) => setCPass(e.target.value)}
+              onBlur={() => {
+                if (pass !== cPass) {
+                  setIsPassNotMatching(true);
+                }
+                if (pass === cPass && isPassNotMatching) {
+                  setIsPassNotMatching(false);
+                }
+              }}
             />
+          </div>
+          <div className="text-red-600 text-sm py-1">
+            {isPassNotMatching &&
+              "Password & Confirm Password should have same value."}
           </div>
           <Button disabled={isLoading}>
             {isLoading && (
